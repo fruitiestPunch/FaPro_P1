@@ -292,3 +292,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+### Graph data
+*.gml
+*.graphml
