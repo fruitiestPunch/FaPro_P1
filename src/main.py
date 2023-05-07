@@ -90,9 +90,9 @@ def all_topologies_synthetic_demands():
     # algorithm settings
     algorithms = [
         "demand_first_waypoints",
-        "heur_ospf_weights",
+        #"heur_ospf_weights",
         "inverse_capacity",
-        "sequential_combination",
+        #"sequential_combination",
     ]
     ilp_method = ""
 
@@ -194,12 +194,11 @@ def abilene_all_algorithms():
 
     # algorithm settings
     algorithms = [  # ("algorithm_name", "ilp_method")
-        #("demand_first_waypoints", ""),
+        ("demand_first_waypoints", ""),
         #("heur_ospf_weights", ""),
         ("inverse_capacity", ""),
-        ("inverse_capacity_cross_impact", ""),
         #("sequential_combination", ""),
-        ("uniform_weights", ""),
+        #("uniform_weights", ""),
         #("segment_ilp", "WEIGHTS"),
         #("segment_ilp", "WAYPOINTS"),
         #("segment_ilp", "JOINT"),
@@ -284,16 +283,16 @@ def snd_real_demands():
 def main():
     """ For each figure used in the paper we perform a single test-run comprising each multiple test instances """
     # Evaluation Fig. 3
-    #print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Topologies{CEND}:")
-    #all_topologies_synthetic_demands()
+    print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Topologies{CEND}:")
+    all_topologies_synthetic_demands()
 
     # Evaluation Fig. 4
     print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Algorithms - Abilene{CEND}:")
     abilene_all_algorithms()
 
     # Evaluation Fig. 5
-    #print(f"Start {HIGHLIGHT}Scaled Real Demands - Abilene, Geant, Germany50{CEND}:")
-    #snd_real_demands()
+    print(f"Start {HIGHLIGHT}Scaled Real Demands - Abilene, Geant, Germany50{CEND}:")
+    snd_real_demands()
 
 
 if __name__ == '__main__':
