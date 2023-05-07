@@ -18,8 +18,6 @@ def get_algorithm(algorithm_name: str, nodes: list, links: list, demands: list, 
         algorithm = HeurOSPFWeights(nodes, links, demands, weights, waypoints, seed=seed, time_out=time_out)
     elif algorithm_name == "inverse_capacity":
         algorithm = InverseCapacity(nodes, links, demands, weights, waypoints, seed=seed)
-    elif algorithm_name == "inverse_capacity":
-        algorithm = InverseCapacity(nodes, links, demands, weights, waypoints, seed=seed)
     elif algorithm_name == "segment_ilp":
         algorithm = SegmentILP(nodes, links, demands, weights, waypoints, waypoint_count=1, method=ilp_method,
                                splitting_factor=sf, time_out=time_out)
