@@ -295,3 +295,7 @@ $RECYCLE.BIN/
 ### Graph data
 *.gml
 *.graphml
+
+### PDF plots
+*.PDF
+*.pdf

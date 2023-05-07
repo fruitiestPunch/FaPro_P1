@@ -27,14 +27,14 @@ plt.rc('figure', titlesize=TITLE_SIZE)
 
 # maps each algorithm to a color
 algo_c_map = {
-    'UnitWeights': "grey",
-    'InverseCapacity': "skyblue",
-    'HeurOSPF': "cornflowerblue",
-    'ILP Weights': "royalblue",
+    #'UnitWeights': "grey",
     'GreedyWaypoints': "hotpink",
-    'ILP Waypoints': "mediumvioletred",
-    'JointHeur': "seagreen",
-    'ILP Joint': "darkgreen",
+    'InverseCapacity': "skyblue",
+    #'HeurOSPF': "cornflowerblue",
+    #'ILP Weights': "royalblue",
+    #'ILP Waypoints': "mediumvioletred",
+    #'JointHeur': "seagreen",
+    #'ILP Joint': "darkgreen",
 }
 
 # maps display name to internal name of topologies
