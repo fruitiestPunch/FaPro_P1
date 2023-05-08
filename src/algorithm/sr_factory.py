@@ -6,6 +6,8 @@ from algorithm.segment_routing.heur_ospf_weights import HeurOSPFWeights
 from algorithm.segment_routing.inverse_capacity import InverseCapacity
 from algorithm.segment_routing.segment_ilp import SegmentILP
 from algorithm.segment_routing.sequential_combination import SequentialCombination
+from algorithm.segment_routing.seq_com_way_cap import SeqComWayCap
+from algorithm.segment_routing.seq_com_cap_way import SeqComCapWay
 from algorithm.segment_routing.uniform_weights import UniformWeights
 
 
@@ -24,6 +26,12 @@ def get_algorithm(algorithm_name: str, nodes: list, links: list, demands: list, 
     elif algorithm_name == "sequential_combination":
         algorithm = SequentialCombination(nodes, links, demands, weights, waypoints, seed=seed, time_out=time_out,
                                           first_algorithm="heur_ospf_weights", second_algorithm="demand_first_waypoints")
+    elif algorithm_name == "seq_com_cap_way":
+        algorithm = SequentialCombination(nodes, links, demands, weights, waypoints, seed=seed, time_out=time_out,
+                                          first_algorithm="inverse_capacity", second_algorithm="demand_first_waypoints")
+    elif algorithm_name == "seq_com_way_cap":
+        algorithm = SequentialCombination(nodes, links, demands, weights, waypoints, seed=seed, time_out=time_out,
+                                          first_algorithm="demand_first_waypoints", second_algorithm="inverse_capacity")                                                                            
     elif algorithm_name == "uniform_weights":
         algorithm = UniformWeights(nodes, links, demands, weights, waypoints, seed=seed)
     else:

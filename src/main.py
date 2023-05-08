@@ -92,6 +92,8 @@ def all_topologies_synthetic_demands():
         "demand_first_waypoints",
         #"heur_ospf_weights",
         "inverse_capacity",
+        "seq_com_way_cap",
+        "seq_com_cap_way",
         #"sequential_combination",
     ]
     ilp_method = ""
@@ -197,6 +199,8 @@ def abilene_all_algorithms():
         ("demand_first_waypoints", ""),
         #("heur_ospf_weights", ""),
         ("inverse_capacity", ""),
+        ("seq_com_way_cap", ""),
+        ("seq_com_cap_way", ""),
         #("sequential_combination", ""),
         #("uniform_weights", ""),
         #("segment_ilp", "WEIGHTS"),
@@ -245,12 +249,16 @@ def snd_real_demands():
         "demand_first_waypoints",
         #"heur_ospf_weights",
         "inverse_capacity",
+        "seq_com_way_cap",
+        "seq_com_cap_way",
         #"sequential_combination",
     ]
     ilp_method = ""
 
     # topology provider setup
     topology_provider = "snd_lib"
+    #topologies = ['abilene']
+    #topologies = ['abilene', 'geant']
     topologies = ['abilene', 'geant', 'germany50']
     topology_generator = get_topology_generator(topology_provider, topologies)
 

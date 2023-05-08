@@ -30,6 +30,8 @@ algo_c_map = {
     #'UnitWeights': "grey",
     'GreedyWaypoints': "hotpink",
     'InverseCapacity': "skyblue",
+    'SeqComWayCap': "seagreen",
+    'SeqComCapWay': "orange",
     #'HeurOSPF': "cornflowerblue",
     #'ILP Weights': "royalblue",
     #'ILP Waypoints': "mediumvioletred",
@@ -43,53 +45,53 @@ top_n_map = {
     "abilene": "Abilene",
     "geant": "Géant",
     "germany50": "Germany50",
-    "polska": "Polska",
-    "nobel-us": "Nobel-US",
-    "atlanta": "Atlanta",
-    "nobel-germany": "Nobel-Germany",
-    "pdh": "Pdh",
-    "nobel-eu": "Nobel-EU",
-    "di": "Di",
-    "janos-us": "Janos-US",
-    "dfn-bwin": "Dfn-Bwin",
-    "france": "France",
-    "dfn-gwin": "Dfn-Gwin",
-    "newyork": "Newyork",
-    "norway": "Norway",
-    "sun": "Sun",
-    "ta1": "Ta1",
-    "cost266": "Cost266",
-    "janos-us-ca": "Janos-US-CA",
-    "india35": "India35",
-    "zib54": "Zib54",
-    "giul39": "Giul39",
-    "pioro40": "Pioro40",
-    "ta2": "Ta2",
-    "brain": "Brain",
+    #"polska": "Polska",
+    #"nobel-us": "Nobel-US",
+    #"atlanta": "Atlanta",
+    #"nobel-germany": "Nobel-Germany",
+    #"pdh": "Pdh",
+    #"nobel-eu": "Nobel-EU",
+    #"di": "Di",
+    #"janos-us": "Janos-US",
+    #"dfn-bwin": "Dfn-Bwin",
+    #"france": "France",
+    #"dfn-gwin": "Dfn-Gwin",
+    #"newyork": "Newyork",
+    #"norway": "Norway",
+    #"sun": "Sun",
+    #"ta1": "Ta1",
+    #"cost266": "Cost266",
+    #"janos-us-ca": "Janos-US-CA",
+    #"india35": "India35",
+    #"zib54": "Zib54",
+    #"giul39": "Giul39",
+    #"pioro40": "Pioro40",
+    #"ta2": "Ta2",
+    #"brain": "Brain",
 
     # topology zoo
     "basnet": "BasNet",
-    "cesnet1999": "CesNet1999",
-    "kreonet": "KreoNet",
-    "eenet": "EeNet",
-    "uran": "Uran",
-    "amres": "Amres",
-    "janetlense": "JanetLense",
-    "renater2010": "Renater2010",
-    "renater2001": "Renater2001",
-    "karen": "Karen",
-    "rediris": "RedIris",
-    "rnp": "Rnp",
-    "kentmanjan2011": "KentmanJan2011",
-    "myren": "Myren",
-    "belnet2006": "BelNet2006",
-    "carnet": "CarNet",
-    "niif": "Niif",
-    "sanet": "SaNet",
-    "geant2009": "Géant2009",
-    "switchl3": "SwitchL3",
-    "savvis": "Savvis",
-    "atmnet": "Atmnet"
+    #"cesnet1999": "CesNet1999",
+    #"kreonet": "KreoNet",
+    #"eenet": "EeNet",
+    #"uran": "Uran",
+    #"amres": "Amres",
+    #"janetlense": "JanetLense",
+    #"renater2010": "Renater2010",
+    #"renater2001": "Renater2001",
+    #"karen": "Karen",
+    #"rediris": "RedIris",
+    #"rnp": "Rnp",
+    #"kentmanjan2011": "KentmanJan2011",
+    #"myren": "Myren",
+    #"belnet2006": "BelNet2006",
+    #"carnet": "CarNet",
+    #"niif": "Niif",
+    #"sanet": "SaNet",
+    #"geant2009": "Géant2009",
+    #"switchl3": "SwitchL3",
+    #"savvis": "Savvis",
+    #"atmnet": "Atmnet"
 }
 
 
@@ -123,7 +125,6 @@ def create_box_plot(df_plot, x, y, hue, file_name, x_label="", y_label="", fig_s
     flier_props = dict(markersize=1, linestyle='none')
     box_plot = sns.boxplot(x=x, y=y, hue=hue, data=df_plot, ax=ax, linewidth=0.5, flierprops=flier_props,
                            palette=algo_c_map)
-
     plt.ylabel(y_label, weight='bold', fontsize=LARGE_SIZE)
     plt.xlabel(f'{x_label}', weight='bold', fontsize=LARGE_SIZE)
     if title:
@@ -137,7 +138,6 @@ def create_box_plot(df_plot, x, y, hue, file_name, x_label="", y_label="", fig_s
         plt.ylim(0.8, y_lim_top)
     for y_line in x_grid_lines:
         y_line.set_color('white')
-
     add_vertical_algorithm_labels(box_plot.axes)
     plt.xticks(rotation=0)
     plt.savefig(file_name.replace(" ", ""), bbox_inches="tight", format='pdf')
@@ -176,17 +176,6 @@ def filter_trees(df):
     df = df[df["topology_name"] != "kentmanjan2011"]
     df = df[df["topology_name"] != "sanet"]
     df = df[df["topology_name"] != "savvis"]
-    return df
-
-
-def filter_biggest_12_topologies(df):
-    """ Filters 12 biggest* non-tree topologies** with complete link capacity information.
-        * 'big' regarding nodes
-        ** from SNDLib and TopologyZoo """
-    biggest_tops = ["Ta2", "Germany50", "Zib54", "Pioro40", "Giul39", "Janos-US-CA", "Renater2010", "SwitchL3", "Myren",
-                    "Cost266", "Niif", "Géant2009"]
-
-    df = df[df.topology_name.isin(biggest_tops)]
     return df
 
 
@@ -248,38 +237,14 @@ def prepare_data_and_plot(df, title, plot_type):
 
     # plot files
     print("Plot files:")
-    if plot_type.startswith("all_topologies"):
-        # PLOT FIGURE 3
-        df1 = df[df["topology_name"] < "JanetLense"]
-        df2 = df[df["topology_name"] >= "JanetLense"]
-        df2 = df2[df2["topology_name"] < "Pdh"]
-        df3 = df[df["topology_name"] >= "Pdh"]
-        for i, df_i in enumerate([df1, df2, df3]):
-            width = 6 + 1.5 * df_i['topology_name'].nunique()
-
-            y_lim_top = 8.5
-            plot_file = os.path.join(out_path, f"{plot_type}_{i}.pdf")
-            create_box_plot(df_i, "topology_name", "objective", "algorithm_complete", plot_file, x_label="",
-                            y_label="Max. Normalized Link Utilization", fig_size=(width, 8),
-                            title=title if i == 0 else "", y_lim_top=y_lim_top)
-
-        df = filter_biggest_12_topologies(df)
-        width = 6 + 1.5 * df['topology_name'].nunique()
-
-        y_lim_top = 5.1
-        plot_file = os.path.join(out_path, f"12_biggest_of_{plot_type}.pdf")
-        create_box_plot(df, "topology_name", "objective", "algorithm_complete", plot_file, x_label="",
-                        y_label="Max. Normalized Link Utilization", fig_size=(width, 8), title=title,
-                        y_lim_top=y_lim_top)
-    else:
-        # PLOT FIGURE 4 + 5
-        y_lim_top = None
-        plot_file = os.path.join(out_path, f"{plot_type}.pdf")
-        if plot_type == "all_algorithms":
-            plot_file = os.path.join(out_path, f"all_algorithms_abilene.pdf")
-        create_box_plot(df, "topology_name", "objective", "algorithm_complete", plot_file, x_label="",
-                        y_label="Max. Normalized Link Utilization", fig_size=(8, 6), title=title,
-                        y_lim_top=y_lim_top)
+    # PLOT FIGURE 4 + 5
+    y_lim_top = None
+    plot_file = os.path.join(out_path, f"{plot_type}.pdf")
+    if plot_type == "all_algorithms":
+        plot_file = os.path.join(out_path, f"all_algorithms_abilene.pdf")
+    create_box_plot(df, "topology_name", "objective", "algorithm_complete", plot_file, x_label="",
+                    y_label="Max. Normalized Link Utilization", fig_size=(8, 6), title=title,
+                    y_lim_top=y_lim_top)
     return
 
 
@@ -305,14 +270,6 @@ if __name__ == "__main__":
         raw_dfs_title.append((df_all_algorithms, "MCF Synthetic Demands", "all_algorithms"))
     else:
         print(f"{utility.FAIL}results_all_algorithms.json not existing in {dir_data}{utility.CEND}")
-
-    # figure (all_topologies)
-    data_all_topologies = os.path.join(dir_data, "results_all_topologies.json")
-    if os.path.exists(data_all_topologies):
-        df_all_topologies = pd.DataFrame(JsonResultReader(data_all_topologies).fetch_results())
-        raw_dfs_title.append((df_all_topologies, "MCF Synthetic Demands", "all_topologies"))
-    else:
-        print(f"{utility.FAIL}results_all_topologies.json not existing in {dir_data}{utility.CEND}")
 
     # figure (real_demands)
     data_real_demands = os.path.join(dir_data, "results_real_demands.json")
