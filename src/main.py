@@ -102,56 +102,13 @@ def all_topologies_synthetic_demands():
         # SNDLib with complete capacity information
         "snd_lib": [
             "abilene",  #: |E|: 30 , |V|: 12
-            #"polska",  #: |E|: 36 , |V|: 12
-            #"nobel-us",  #: |E|: 42 , |V|: 14
-            #"atlanta",  #: |E|: 44 , |V|: 15
-            #"nobel-germany",  #: |E|: 52 , |V|: 17
-            #"pdh",  #: |E|: 68 , |V|: 11
-            #"geant",  #: |E|: 72 , |V|: 22
-            #"nobel-eu",  #: |E|: 82 , |V|: 28
-            #"di",  #: |E|: 84 , |V|: 11
-            #"janos-us",  #: |E|: 84 , |V|: 26
-            #"dfn-bwin",  #: |E|: 90 , |V|: 10
-            #"france",  #: |E|: 90 , |V|: 25
-            #"dfn-gwin",  #: |E|: 94 , |V|: 11
-            #"newyork",  #: |E|: 98 , |V|: 16
-            #"norway",  #: |E|: 102, |V|: 27
-            #"sun",  #: |E|: 102, |V|: 27
-            #"ta1",  #: |E|: 102, |V|: 24
-            #"cost266",  #: |E|: 114, |V|: 37
-            #"janos-us-ca",  #: |E|: 122, |V|: 39
-            #"india35",  #: |E|: 160, |V|: 35
-            #"zib54",  #: |E|: 160, |V|: 54
-            #"giul39",  #: |E|: 172, |V|: 39
-            #"germany50",  #: |E|: 176, |V|: 50
-            #"pioro40",  #: |E|: 178, |V|: 40
-            #"ta2",  #: |E|: 216, |V|: 65
-            #"brain",  #: |E|: 332, |V|: 161
+            "polska",  #: |E|: 36 , |V|: 12
+            "nobel-us",  #: |E|: 42 , |V|: 14
         ],
 
         # TopologyZoo complete capacity information
         "topology_zoo": [
             "basnet",  #: |E|: 12 , |V|: 7
-            #"cesnet1999",  #: |E|: 24 , |V|: 13
-            #"kreonet",  #: |E|: 24 , |V|: 13
-            #"eenet",  #: |E|: 26 , |V|: 13
-            #"savvis",  #: |E|: 40 , |V|: 19
-            #"atmnet",  #: |E|: 44 , |V|: 21
-            #"uran",  #: |E|: 48 , |V|: 24
-            #"amres",  #: |E|: 48 , |V|: 25
-            #"karen",  #: |E|: 56 , |V|: 25
-            #"rediris",  #: |E|: 62 , |V|: 19
-            #"janetlense",  #: |E|: 68 , |V|: 20
-            #"rnp",  #: |E|: 68 , |V|: 31
-            #"kentmanjan2011",  #: |E|: 76 , |V|: 38
-            #"myren",  #: |E|: 78 , |V|: 37
-            #"belnet2006",  #: |E|: 82 , |V|: 23
-            #"niif",  #: |E|: 82 , |V|: 36
-            #"carnet",  #: |E|: 86 , |V|: 44
-            #"sanet",  #: |E|: 90 , |V|: 43
-            #"geant2009",  #: |E|: 104, |V|: 34
-            #"renater2010",  #: |E|: 112, |V|: 43
-            #"switchl3",  #: |E|: 126, |V|: 42
         ]
     }
 
@@ -241,19 +198,18 @@ def snd_real_demands():
     # algorithm settings
     algorithms = [
         "demand_first_waypoints",
-        #"heur_ospf_weights",
         "inverse_capacity",
         "seq_com_way_cap",
         "seq_com_cap_way",
-        "sequential_combination",
+        #"sequential_combination",
     ]
     ilp_method = ""
 
     # topology provider setup
     topology_provider = "snd_lib"
-    #topologies = ['abilene']
-    #topologies = ['abilene', 'geant']
-    topologies = ['abilene', 'geant', 'germany50']
+    topologies = ['abilene']
+    #topologies = ['abilene', 'polska']
+    #topologies = ['abilene', 'polska', 'nobel-us']
     topology_generator = get_topology_generator(topology_provider, topologies)
 
     # demand provider setup
@@ -285,12 +241,12 @@ def snd_real_demands():
 def main():
     """ For each figure used in the paper we perform a single test-run comprising each multiple test instances """
     # Evaluation Fig. 3
-    #print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Topologies{CEND}:")
-    #all_topologies_synthetic_demands()
+    print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Topologies{CEND}:")
+    all_topologies_synthetic_demands()
 
     # Evaluation Fig. 4
-    #print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Algorithms - Abilene{CEND}:")
-    #abilene_all_algorithms()
+    print(f"Start {HIGHLIGHT}MCF Synthetic Demands - All Algorithms - Abilene{CEND}:")
+    abilene_all_algorithms()
 
     # Evaluation Fig. 5
     print(f"Start {HIGHLIGHT}Scaled Real Demands - Abilene, Geant, Germany50{CEND}:")

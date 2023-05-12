@@ -38,55 +38,11 @@ algo_c_map = {
 top_n_map = {
     # sndlib
     "abilene": "Abilene",
-    "geant": "Géant",
-    "germany50": "Germany50",
-    #"polska": "Polska",
+    #"polska": "Poska",
     #"nobel-us": "Nobel-US",
-    #"atlanta": "Atlanta",
-    #"nobel-germany": "Nobel-Germany",
-    #"pdh": "Pdh",
-    #"nobel-eu": "Nobel-EU",
-    #"di": "Di",
-    #"janos-us": "Janos-US",
-    #"dfn-bwin": "Dfn-Bwin",
-    #"france": "France",
-    #"dfn-gwin": "Dfn-Gwin",
-    #"newyork": "Newyork",
-    #"norway": "Norway",
-    #"sun": "Sun",
-    #"ta1": "Ta1",
-    #"cost266": "Cost266",
-    #"janos-us-ca": "Janos-US-CA",
-    #"india35": "India35",
-    #"zib54": "Zib54",
-    #"giul39": "Giul39",
-    #"pioro40": "Pioro40",
-    #"ta2": "Ta2",
-    #"brain": "Brain",
 
     # topology zoo
     "basnet": "BasNet",
-    #"cesnet1999": "CesNet1999",
-    #"kreonet": "KreoNet",
-    #"eenet": "EeNet",
-    #"uran": "Uran",
-    #"amres": "Amres",
-    #"janetlense": "JanetLense",
-    #"renater2010": "Renater2010",
-    #"renater2001": "Renater2001",
-    #"karen": "Karen",
-    #"rediris": "RedIris",
-    #"rnp": "Rnp",
-    #"kentmanjan2011": "KentmanJan2011",
-    #"myren": "Myren",
-    #"belnet2006": "BelNet2006",
-    #"carnet": "CarNet",
-    #"niif": "Niif",
-    #"sanet": "SaNet",
-    #"geant2009": "Géant2009",
-    #"switchl3": "SwitchL3",
-    #"savvis": "Savvis",
-    #"atmnet": "Atmnet"
 }
 
 
@@ -201,9 +157,6 @@ def prepare_data_and_plot(df, title, plot_type):
     df["algorithm"] = df["algorithm"].str.replace("_", " ").str.title().str.replace(" ", "")
     df["ilp_method"] = df["ilp_method"].str.replace("_", " ").str.title().str.replace(" ", "")
     df["algorithm_complete"] = df[['algorithm', 'ilp_method']].agg(' '.join, axis=1).str.replace('  ', ' ').str.strip()
-    df["algorithm_complete"] = df["algorithm_complete"].str.replace("OspfWeights", "OSPF")
-    df["algorithm_complete"] = df["algorithm_complete"].str.replace("Uniform", "Unit")
-    df["algorithm_complete"] = df["algorithm_complete"].str.replace("SegmentIlp", "ILP")
     df["algorithm_complete"] = df["algorithm_complete"].str.replace("DemandFirstWaypoints", "GreedyWaypoints")
     df["algorithm_complete"] = df["algorithm_complete"].str.replace("SequentialCombination", "JointHeur")
 

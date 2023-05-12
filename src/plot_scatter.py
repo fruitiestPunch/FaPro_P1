@@ -36,55 +36,11 @@ algo_c_map = {
 top_n_map = {
     # sndlib
     "abilene": "Abilene",
-    "geant": "Géant",
-    "germany50": "Germany50",
-    "polska": "Polska",
-    "nobel-us": "Nobel-US",
-    "atlanta": "Atlanta",
-    "nobel-germany": "Nobel-Germany",
-    "pdh": "Pdh",
-    "nobel-eu": "Nobel-EU",
-    "di": "Di",
-    "janos-us": "Janos-US",
-    "dfn-bwin": "Dfn-Bwin",
-    "france": "France",
-    "dfn-gwin": "Dfn-Gwin",
-    "newyork": "Newyork",
-    "norway": "Norway",
-    "sun": "Sun",
-    "ta1": "Ta1",
-    "cost266": "Cost266",
-    "janos-us-ca": "Janos-US-CA",
-    "india35": "India35",
-    "zib54": "Zib54",
-    "giul39": "Giul39",
-    "pioro40": "Pioro40",
-    "ta2": "Ta2",
-    "brain": "Brain",
+    #"polska": "Polska",
+    #"nobel-us": "Nobel-US",
 
     # topology zoo
     "basnet": "BasNet",
-    "cesnet1999": "CesNet1999",
-    "kreonet": "KreoNet",
-    "eenet": "EeNet",
-    "uran": "Uran",
-    "amres": "Amres",
-    "janetlense": "JanetLense",
-    "renater2010": "Renater2010",
-    "renater2001": "Renater2001",
-    "karen": "Karen",
-    "rediris": "RedIris",
-    "rnp": "Rnp",
-    "kentmanjan2011": "KentmanJan2011",
-    "myren": "Myren",
-    "belnet2006": "BelNet2006",
-    "carnet": "CarNet",
-    "niif": "Niif",
-    "sanet": "SaNet", 
-    "geant2009": "Géant2009",
-    "switchl3": "SwitchL3",
-    "savvis": "Savvis",
-    "atmnet": "Atmnet"
 }
 
 # dict {name: string, objective: double, execution_time: double, process_time: double}
@@ -151,8 +107,6 @@ def beautify_algo_name(plot_data):
 
     for algo in plot_data:
         algo['name'] = algo['name'].replace("_", " ").title().replace(" ", "")
-        algo['name'] = algo['name'].replace("OspfWeights", "OSPF")
-        algo['name'] = algo['name'].replace("Uniform", "Unit")
         algo['name'] = algo['name'].replace("DemandFirstWaypoints", "GreedyWaypoints")
         algo['name'] = algo['name'].replace("SequentialCombination", "JointHeur")
 
