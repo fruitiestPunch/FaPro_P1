@@ -31,3 +31,18 @@ python3 plot_scatters.py "../out/"
 The code can be run with multiple options.
 These are given by flags that are always at the top of each python file.
 
+```bash
+int num_of_topologies
+```
+This number decides how many topologies you are running. This is relevant for the test in **SDN Real  Demands**.
+```bash
+boolean sequential_combination
+```
+There are 4 algorithms that are always checked and running with **[main.py](main.py)**. When the bool is set to true, the 5th algorithm **sequential_combination** will run.
+*Note: This algorithm will increase the overall runtime of the main function.
+```bash
+boolean test_1
+boolean test_2
+boolean test_3
+```
+It is possible to decide what tests will run with the above booleans.
