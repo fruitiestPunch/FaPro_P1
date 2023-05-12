@@ -25,22 +25,11 @@ plt.rc('ytick', labelsize=SMALL_SIZE)
 plt.rc('figure', titlesize=TITLE_SIZE)
 
 algo_c_map = {
-    #'UnitWeights': "grey",
     'GreedyWaypoints': "hotpink",
     'InverseCapacity': "skyblue",
-    'SeqComWayCap': "seagreen",
+    'SeqComWayCap': "darkgreen",
     'SeqComCapWay': "orange",
-    #'InverseSquareCapacity': "darkblue",
-    #'Log2Capacity': "royalblue",
-    #'FibCapacity': "green",
-    #'HeurOSPF': "cornflowerblue",
-    #'ILP Weights': "royalblue",
-    #'IndependentPathsWaypoints': "yellow",
-    #'DemandShortestPath': "indigo",
-    #'RandomWaypoints': "cyan",
-    #'ILP Waypoints': "mediumvioletred",
     #'JointHeur': "seagreen",
-    #'ILP Joint': "darkgreen",
 }
 
 # maps display name to internal name of topologies
