@@ -13,10 +13,18 @@ To run the project, one has to (similarly to the base project) open up a termina
 
 ```bash
 conda activate wan_sr
+```
+```bash
 cd pathToProjectFolder/src/
+```
+```bash
 python3 main.py
+```
+```bash
 python3 plot_results.py "../out/"
-python3 plot_scatter.py "../out/"
+```
+```bash
+python3 plot_scatters.py "../out/"
 ```
 
 ### Additional options/flags
