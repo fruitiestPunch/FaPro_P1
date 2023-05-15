@@ -129,8 +129,12 @@ if __name__ == "__main__":
     for filename in json_filenames:
         print(f"Loading json {filename} .")
         json_data = list(map(
-            lambda  json_dict: {'name': json_dict['algorithm'], 'objective': json_dict['objective'], 'execution_time': json_dict['execution_time'], 'process_time': json_dict['process_time']},
-            load_data(f"{dir_data}/results_real_demands.json")))
+            lambda  json_dict: {
+                'name': json_dict['algorithm'], 
+                'objective': json_dict['objective'], 
+                'execution_time': json_dict['execution_time'], 
+                'process_time': json_dict['process_time']},
+            load_data(f"{dir_data}/{filename}")))
     
         plot_data = reduce_list(json_data)
         plot_data = beautify_algo_name(plot_data);
