@@ -14,6 +14,12 @@ from utility.utility import HIGHLIGHT, CEND, FAIL, error_solution, get_setup_dic
 OUT_DIR = os.path.abspath("../out/")
 LOG_DIR = os.path.join(OUT_DIR, "log/")
 
+# ###########################################################################
+# custom variables
+num_of_topologies = 1
+enable_seqential_combination = False
+# ###########################################################################
+
 # demands settings
 SEED = 318924135
 DEMANDS_SAMPLES = 10
@@ -88,29 +94,61 @@ def all_topologies_synthetic_demands():
     Each test instance is executed on 4 heuristic algorithms """
 
     # algorithm settings
-    algorithms = [
-        "demand_first_waypoints",
-        "inverse_capacity",
-        "seq_com_way_cap",
-        "seq_com_cap_way",
-        #"sequential_combination",
-    ]
+    if(enable_seqential_combination):
+        algorithms = [
+            "demand_first_waypoints",
+            "inverse_capacity",
+            "seq_com_way_cap",
+            "seq_com_cap_way",
+            "sequential_combination",
+        ]
+    else:
+        algorithms = [
+            "demand_first_waypoints",
+            "inverse_capacity",
+            "seq_com_way_cap",
+            "seq_com_cap_way",
+            #"sequential_combination",
+        ]
     ilp_method = ""
 
     # topology provider settings
-    topology_map = {
-        # SNDLib with complete capacity information
-        "snd_lib": [
-            "abilene",  #: |E|: 30 , |V|: 12
-            "polska",  #: |E|: 36 , |V|: 12
-            "nobel-us",  #: |E|: 42 , |V|: 14
-        ],
-
-        # TopologyZoo complete capacity information
-        "topology_zoo": [
-            "basnet",  #: |E|: 12 , |V|: 7
-        ]
-    }
+    if(num_of_topologies <= 1):
+        topology_map = {
+            # SNDLib with complete capacity information
+            "snd_lib": [
+                "abilene",  #: |E|: 30 , |V|: 12
+            ],
+            # TopologyZoo complete capacity information
+            "topology_zoo": [
+                "basnet",  #: |E|: 12 , |V|: 7
+            ]
+        }
+    elif(num_of_topologies == 2):
+        topology_map = {
+            # SNDLib with complete capacity information
+            "snd_lib": [
+                "abilene",  #: |E|: 30 , |V|: 12
+                "geant",  #: |E|: 72, |V|: 22
+            ],
+            # TopologyZoo complete capacity information
+            "topology_zoo": [
+                "basnet",  #: |E|: 12 , |V|: 7
+            ]
+        }
+    else:
+        topology_map = {
+            # SNDLib with complete capacity information
+            "snd_lib": [
+                "abilene",  #: |E|: 30 , |V|: 12
+                "geant",  #: |E|: 72, |V|: 22
+                "germany50",  #: |E|: 176 , |V|: 50
+            ],
+            # TopologyZoo complete capacity information
+            "topology_zoo": [
+                "basnet",  #: |E|: 12 , |V|: 7
+            ]
+        }
 
     if not os.path.exists(os.path.join(utility.BASE_PATH_ZOO_TOPOLOGY, f"{topology_map['topology_zoo'][0].title()}.graphml")):
         print(f"{FAIL}The data from TopologyZoo is not available - pls follow the instruction in README.md{CEND}")
@@ -151,13 +189,22 @@ def abilene_all_algorithms():
     Each test instance is executed on all available algorithms """
 
     # algorithm settings
-    algorithms = [  # ("algorithm_name", "ilp_method")
-        ("demand_first_waypoints", ""),
-        ("inverse_capacity", ""),
-        ("seq_com_way_cap", ""),
-        ("seq_com_cap_way", ""),
-        #("sequential_combination", ""),
-    ]
+    if(enable_seqential_combination):
+        algorithms = [
+            ("demand_first_waypoints", ""),
+            ("inverse_capacity", ""),
+            ("seq_com_way_cap", ""),
+            ("seq_com_cap_way", ""),
+            ("sequential_combination", ""),
+        ]
+    else:
+        algorithms = [
+            ("demand_first_waypoints", ""),
+            ("inverse_capacity", ""),
+            ("seq_com_way_cap", ""),
+            ("seq_com_cap_way", ""),
+            #("sequential_combination", ""),
+        ]
 
     # topology provider setup
     topology_provider = "snd_lib"
@@ -196,20 +243,32 @@ def snd_real_demands():
     Each test instance is executed  on 4 heuristic algorithms """
 
     # algorithm settings
-    algorithms = [
-        "demand_first_waypoints",
-        "inverse_capacity",
-        "seq_com_way_cap",
-        "seq_com_cap_way",
-        #"sequential_combination",
-    ]
+    if(enable_seqential_combination):
+        algorithms = [
+            "demand_first_waypoints",
+            "inverse_capacity",
+            "seq_com_way_cap",
+            "seq_com_cap_way",
+            "sequential_combination",
+        ]
+    else:
+        algorithms = [
+            "demand_first_waypoints",
+            "inverse_capacity",
+            "seq_com_way_cap",
+            "seq_com_cap_way",
+            #"sequential_combination",
+        ]
     ilp_method = ""
 
     # topology provider setup
     topology_provider = "snd_lib"
-    topologies = ['abilene']
-    #topologies = ['abilene', 'polska']
-    #topologies = ['abilene', 'polska', 'nobel-us']
+    if(num_of_topologies <= 1):
+        topologies = ['abilene']
+    elif(num_of_topologies == 2):
+        topologies = ['abilene', 'geant']
+    else:
+        topologies = ['abilene', 'geant', 'germany50']
     topology_generator = get_topology_generator(topology_provider, topologies)
 
     # demand provider setup
@@ -249,7 +308,7 @@ def main():
     abilene_all_algorithms()
 
     # Evaluation Fig. 5
-    print(f"Start {HIGHLIGHT}Scaled Real Demands - Abilene, Geant, Germany50{CEND}:")
+    print(f"Start {HIGHLIGHT}Scaled Real Demands - Abilene, Polska, Nobel-US{CEND}:")
     snd_real_demands()
 
 

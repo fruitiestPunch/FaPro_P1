@@ -1,11 +1,12 @@
 # Fachprojet "Routing Algorithms"
 
 ## Dependencies and assumptions
-It will be assumed that the person interested in the project already has a working and running version of the base project, including the gurobi license and a correctly running anaconda instance. 
+It will be assumed that the person interested in the project already has a working and running version of the base project,
+ including the gurobi license and a correctly running anaconda instance. 
 If not, please look up the instructions given in the **[README_base.md](README_base.md)**
 
 ## Install
-To start wroking on this project, it is necessary to clone/download this repository.
+To start working on this project, it is necessary to clone/download this repository.
 The download location is not important.
 
 ## Running the project
@@ -22,7 +23,8 @@ python3 main.py
 ```
 To view the results as box plot diagrams, the following command is useful.
 
-*Note: The algorithm to plot box plot diagrams from all topologies was removed due to issues. It seems that an error is occurring when not at least topologies were given to the main.py.*
+*Note: The algorithm to create box plot diagrams from all topologies was removed due to issues.*
+*It seems that an error is occurring when only a subset (possibly < 12) of all topologies are selected for the main.py.*
 ```bash
 python3 plot_results.py "../out/"
 ```
@@ -44,22 +46,15 @@ This number decides how many topologies you are running. This is relevant for th
 ```bash
 mian.py
 int num_of_topologies <= 1 // just abilene will be used
-int num_of_topologies  = 2 // abilene and oplska will be used
+int num_of_topologies  = 2 // abilene and polska will be used
 int num_of_topologies >= 3 // abilene, polska and nobel-us will be used
 ```
 
 By default, the boolean is set to **False**.
-If set to **True**, the algorithm *sequential_combination* will be run which will in turn run the *heur_OSPF_weights*. This will drastically increase the computational time.
+If set to **True**, the algorithm *sequential_combination* will be run which will in turn run the *heur_OSPF_weights*.
+This will drastically increase the computational time.
 But it is recommended to set this for comparison's sake with the other algorithms.
 ```bash
 main.py
 bool sequential_combination = 0
-```
-
-The following booleans are by default set to **True**.
-It is possible to set some of them to **False**, when only a subset is of concern.
-```bash
-bool test_1 = True
-bool test_2 = True
-bool test_3 = True
 ```

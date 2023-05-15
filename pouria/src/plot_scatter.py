@@ -14,6 +14,12 @@ from utility.utility import HIGHLIGHT, CEND
 DEFAULT_DIR_DATA = utility.create_dirs(f"../results_paper")
 DIR_PLOT = utility.create_dirs(f"../out/plots")
 
+# ###########################################################################
+# custom variables
+num_of_topologies = 1
+enable_seqential_combination = False
+# ###########################################################################
+
 # plot settings
 SMALL_SIZE = 14
 LARGE_SIZE = 15
@@ -24,24 +30,43 @@ plt.rc('xtick', labelsize=SMALL_SIZE)
 plt.rc('ytick', labelsize=SMALL_SIZE)
 plt.rc('figure', titlesize=TITLE_SIZE)
 
-algo_c_map = {
-    'GreedyWaypoints': "hotpink",
-    'InverseCapacity': "skyblue",
-    'SeqComWayCap': "darkgreen",
-    'SeqComCapWay': "orange",
-    #'JointHeur': "seagreen",
-}
+# maps each algorithm to a color
+if(enable_seqential_combination):
+    algo_c_map = {
+        'GreedyWaypoints': "hotpink",
+        'InverseCapacity': "skyblue",
+        'SeqComWayCap': "darkgreen",
+        'SeqComCapWay': "orange",
+        'JointHeur': "seagreen",
+    }
+else:
+    algo_c_map = {
+        'GreedyWaypoints': "hotpink",
+        'InverseCapacity': "skyblue",
+        'SeqComWayCap': "darkgreen",
+        'SeqComCapWay': "orange",
+        #'JointHeur': "seagreen",
+    }
 
 # maps display name to internal name of topologies
-top_n_map = {
-    # sndlib
-    "abilene": "Abilene",
-    #"polska": "Polska",
-    #"nobel-us": "Nobel-US",
-
-    # topology zoo
-    "basnet": "BasNet",
-}
+if(num_of_topologies <= 1):
+    top_n_map = {
+        "abilene": "Abilene",
+        "basnet": "BasNet",
+    }
+elif(num_of_topologies == 2):
+    top_n_map = {
+        "abilene": "Abilene",
+        "geant": "Geant",
+        "basnet": "BasNet",
+    }
+else:
+    top_n_map = {
+        "abilene": "Abilene",
+        "geant": "Geant",
+        "germany50": "Germany50",
+        "basnet": "BasNet",
+    }
 
 # dict {name: string, objective: double, execution_time: double, process_time: double}
 def plot_and_save_pdf(plot_data, dirname):
