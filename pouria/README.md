@@ -20,9 +20,12 @@ cd pathToProjectFolder/src/
 ```bash
 python3 main.py
 ```
+To view the results as box plot diagrams, the following command is useful.
+*Note: The algorithm to plot box plot diagrams from all topologies was removed due to issues. It seems that an error is occurring when not at least topologies were given to the main.py.*
 ```bash
 python3 plot_results.py "../out/"
 ```
+The following command is optional, but will highlight the differences in computation time between the used algorithms.
 ```bash
 python3 plot_scatters.py "../out/"
 ```
