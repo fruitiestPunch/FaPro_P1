@@ -21,6 +21,7 @@ cd pathToProjectFolder/src/
 python3 main.py
 ```
 To view the results as box plot diagrams, the following command is useful.
+
 *Note: The algorithm to plot box plot diagrams from all topologies was removed due to issues. It seems that an error is occurring when not at least topologies were given to the main.py.*
 ```bash
 python3 plot_results.py "../out/"
@@ -31,21 +32,34 @@ python3 plot_scatters.py "../out/"
 ```
 
 ### Additional options/flags
+The choice of algorithms and topologies was based on computational time.
+Therefore, only 4-5 algorithms are used in the process and the choice of topologies was reduced to the top 3 smallest ones.
+To reduce the overall computation time even more, flags are introduced.
 The code can be run with multiple options.
 These are given by flags that are always at the top of each python file.
+*Note: It is advised that the same configuration of flags that were used in one Python file are used in the others.*
+*For eample: If **bool sequential_combination = True** is set in main.py, it also has to be set the same way in the other Python files.*
 
-```bash
-int num_of_topologies
-```
 This number decides how many topologies you are running. This is relevant for the test in **SDN Real  Demands**.
 ```bash
-boolean sequential_combination
+mian.py
+int num_of_topologies <= 1 // just abilene will be used
+int num_of_topologies  = 2 // abilene and oplska will be used
+int num_of_topologies >= 3 // abilene, polska and nobel-us will be used
 ```
-There are 4 algorithms that are always checked and running with **[main.py](main.py)**. When the bool is set to true, the 5th algorithm **sequential_combination** will run.
-*Note: This algorithm will increase the overall runtime of the main function.
+
+By default, the boolean is set to **False**.
+If set to **True**, the algorithm *sequential_combination* will be run which will in turn run the *heur_OSPF_weights*. This will drastically increase the computational time.
+But it is recommended to set this for comparison's sake with the other algorithms.
 ```bash
-boolean test_1
-boolean test_2
-boolean test_3
+main.py
+bool sequential_combination = 0
 ```
-It is possible to decide what tests will run with the above booleans.
+
+The following booleans are by default set to **True**.
+It is possible to set some of them to **False**, when only a subset is of concern.
+```bash
+bool test_1 = True
+bool test_2 = True
+bool test_3 = True
+```
