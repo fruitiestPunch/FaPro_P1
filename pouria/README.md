@@ -46,15 +46,14 @@ This number decides how many topologies you are running. This is relevant for th
 ```bash
 mian.py
 int num_of_topologies <= 1 // just abilene will be used
-int num_of_topologies  = 2 // abilene and polska will be used
-int num_of_topologies >= 3 // abilene, polska and nobel-us will be used
+int num_of_topologies  = 2 // abilene and geant will be used
+int num_of_topologies >= 3 // abilene, geant and germany50 will be used
 ```
 
 By default, the boolean is set to **False**.
 If set to **True**, the algorithm *sequential_combination* will be run which will in turn run the *heur_OSPF_weights*.
-This will drastically increase the computational time.
-But it is recommended to set this for comparison's sake with the other algorithms.
+This will drastically increase the computation time.
 ```bash
 main.py
-bool sequential_combination = 0
+bool sequential_combination = False
 ```
