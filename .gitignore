@@ -297,5 +297,6 @@ $RECYCLE.BIN/
 *.graphml
 
 ### PDF plots
-*.PDF
-*.pdf
+# temporarily disabled for anyone interested in the original plots
+#*.PDF
+#*.pdf
