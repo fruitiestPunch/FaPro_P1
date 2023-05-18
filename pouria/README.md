@@ -8,6 +8,7 @@ If not, please look up the instructions given in the **[README_base.md](README_b
 ## Install
 To start working on this project, it is necessary to clone/download this repository.
 The download location is not important.
+Please keep in mind to download the necessary .graphml/.gml files into the **/data/topologies/topology_zoo/** directory.
 
 ## Running the project
 To run the project, one has to (similarly to the base project) open up a terminal and enter the following commands:
