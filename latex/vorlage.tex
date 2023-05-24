@@ -116,52 +116,9 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Naveed}
-\begin{frame}[fragile]{Plotergebnisse}
-\begin{itemize}
-    \item \textbf{All-algorithms}
-\end{itemize}
+\begin{frame}[fragile]{}
 \begin{center}
-    \includegraphics[width=.6\textwidth]{images/naveed_1.pdf}
-\end{center}
-\end{frame}
-\begin{frame}[fragile]{Plotergebnisse}
-\begin{itemize}
-    \item \textbf{All-topologies:}\newline $1)$
-\end{itemize}
-\begin{center}
-    \includegraphics[width=.7\textwidth]{images/naveed_3.pdf}
-\end{center}
-\end{frame}
-\begin{frame}[fragile]{Plotergebnisse}
-\begin{itemize}
-    \item \textbf{All-topologies:}\newline $2)$
-\end{itemize}
-\begin{center}
-    \includegraphics[width=.7\textwidth]{images/naveed_4.pdf}
-\end{center}
-\end{frame}
-\begin{frame}[fragile]{Plotergebnisse}
-\begin{itemize}
-    \item \textbf{All-topologies:}\newline $3)$
-\end{itemize}
-\begin{center}
-    \includegraphics[width=.5\textwidth]{images/naveed_2.pdf}
-\end{center}
-\end{frame}
-\begin{frame}[fragile]{Plotergebnisse}
-\begin{itemize}
-    \item \textbf{All-topologies:}\newline $4)$
-\end{itemize}
-\begin{center}
-    \includegraphics[width=.7\textwidth]{images/naveed_5.pdf}
-\end{center}
-\end{frame}
-\begin{frame}[fragile]{Plotergebnisse}
-\begin{itemize}
-    \item \textbf{Real demands:}
-\end{itemize}
-\begin{center}
-    \includegraphics[width=.6\textwidth]{images/naveed_6.pdf}
+    \includegraphics[width=\textwidth]{images/naveed_7.jpg}
 \end{center}
 \end{frame}
 \begin{frame}{Ergebnisse}
@@ -184,9 +141,9 @@
     \includegraphics[width=\textwidth]{images/naveed_14.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[fragile]{}
+\begin{frame}{Ergebnisse}
 \begin{center}
-    \includegraphics[width=\textwidth]{images/naveed_7.jpg}
+    \includegraphics[width=\textwidth]{images/naveed_15.pdf}
 \end{center}
 \end{frame}
 
@@ -215,48 +172,37 @@
 \end{itemize}
 \end{frame}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% vierte Folie
-\begin{frame}{Zweiter Schritt: Ergebnisse}
-\Large
-Zielmetrik: MLU (minimum link utilization)
-\begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria1.png}
-\end{center}
-\end{frame}
-\begin{frame}{Zweiter Schritt: Ergebnisse}
-\Large
-Zielmetrik: MLU (minimum link utilization) \textcolor{red}{+ Rechenzeit}
-\begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria2.png}
-\end{center}
-\end{frame}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % neue Folien
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Ergebnisse}
+\begin{frame}{MCF Synthetic Demands}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
 \begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria_all_algorithms_abilene.pdf}
+\includegraphics[width=\textwidth]{images/pouria_all_algorithms_abilene.pdf}
 \end{center}
+\end{column}
+\hfill
+\begin{column}{0.5\paperwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/pouria_colored_scatter_plot_results_all_algorithms.pdf}
+\end{center}
+\end{column}
+\end{columns}
 \end{frame}
-\begin{frame}{Ergebnisse}
+\begin{frame}{Scaled Real Demands}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
 \begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria_colored_scatter_plot_results_all_algorithms.pdf}
+\includegraphics[width=\textwidth]{images/pouria_real_demands.pdf}
 \end{center}
-\end{frame}
-\begin{frame}{Ergebnisse}
+\end{column}
+\hfill
+\begin{column}{0.5\paperwidth}
 \begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria_real_demands.pdf}
+\includegraphics[width=\textwidth]{images/pouria_colored_scatter_plot_results_real_demands.pdf}
 \end{center}
-\end{frame}
-\begin{frame}{Ergebnisse}
-\begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria_colored_scatter_plot_results_real_demands.pdf}
-\end{center}
-\end{frame}
-\begin{frame}{Ergebnisse}
-\begin{center}
-\includegraphics[width=.8\textwidth]{images/pouria_colored_scatter_plot_results_all_topologies.pdf}
-\end{center}
+\end{column}
+\end{columns}
 \end{frame}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % neue Folien
@@ -264,19 +210,15 @@ Zielmetrik: MLU (minimum link utilization) \textcolor{red}{+ Rechenzeit}
 \begin{frame}{Zweiter Schritt: Fragen}
 \Large
 \begin{itemize}
+    \item Rechenaufwand von beiden gleich? $\rightarrow$ ja (vergleichbar)
     \item warum ist $SQ_{CW}$ besser als $SQ_{WC}$?
-    \item Rechenaufwand von beiden gleich?
-    \item warum $SQ$ so viel besser als $SQ_{CW}$ oder $SQ_{WC}$?
+    \begin{itemize}
+    \Large
+        \item $inverse\_capacity$ bei \textcolor{green}{SeqComWayCap} versaut vorher optimierte Gewichte
+        \item $inverse\_capacity$ bei \textcolor{red}{SeqComCapWay} stellt n\"utzliche Gewichte
+        \item $demand\_first\_waypoints$ legt beste Route und verbessert weiter
+    \end{itemize}
 \end{itemize}
-N\"achste Schritte:
-\begin{itemize}
-    \item Algos genauer analysieren \textcolor{lightgray}{Schritt 3}
-    \item Experimente reproduzierbar machen \textcolor{lightgray}{Schritt 4}
-\end{itemize}
-\end{frame}
-\begin{frame}[t,standout]
-\Large
-Fragen oder Anmerkungen?
 \end{frame}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,29 +227,35 @@ Fragen oder Anmerkungen?
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ergebnisse Reproduktion von Gruppe 3}
-\begin{frame}{Frame Title}
-\begin{center}
-    \includegraphics[width=\textwidth]{images/err1.png}
-\end{center}
-\end{frame}
-\begin{frame}{Frame Title}
-\begin{center}
-    \includegraphics[width=\textwidth]{images/err2.png}
-\end{center}
-\end{frame}
-\begin{frame}{Frame Title}
-\begin{center}
-    \includegraphics[width=\textwidth]{images/err3.png}
-\end{center}
-\end{frame}
-\begin{frame}{Frame Title}
-\begin{center}
-    \includegraphics[width=\textwidth]{images/err4.png}
-\end{center}
-\end{frame}
-\begin{frame}{Frame Title}
+\begin{frame}{main: process killed itself}
 \begin{center}
     \includegraphics[width=\textwidth]{images/err5.png}
 \end{center}
 \end{frame}
+\begin{frame}{zixiang gu: Plottererror}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err3.png}
+\end{center}
+\end{frame}
+\begin{frame}{zixiang gu: Plottererror nach Anpassung}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err1.png}
+\end{center}
+\end{frame}
+\begin{frame}{daniel: Process killed itself}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err2.png}
+\end{center}
+\end{frame}
+\begin{frame}{daniel: Dependency nicht in README}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err4.png}
+\end{center}
+\end{frame}
+
+\begin{frame}[t,standout]
+\Large
+Fragen oder Anmerkungen?
+\end{frame}
 \end{document}
+
