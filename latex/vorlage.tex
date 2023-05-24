@@ -1,0 +1,313 @@
+% % -*- coding:utf-8 -*-
+\documentclass[aspectratio=169,10pt]{beamer}
+\nonstopmode
+
+\usepackage{appendixnumberbeamer}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath, amssymb}
+\usepackage{pifont} %fuer checkmarks
+\input{colors}
+
+% \usepackage{beamerthememetropolis}
+\usetheme[progressbar=frametitle,noslidenumbers]{metropolis}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+
+\usepackage{xcolor}
+
+
+\title{Abschlusspr\"asentation Projekt 1}
+% \subtitle{Learning to Identify Similarities between Mathematical Expressions}
+\author{Pouria Araghchi 170468, Kai Lukas Ilmenau 225338, Naveed Niazi 214471}
+
+\institute{TU Dortmund - Fachprojekt zu "Routingalgorithmen"}
+\titlegraphic{\hfill\includegraphics[height=8mm]{tu-do-logo.pdf}}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kai
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Inverse Capacity mit Zentralit\"atsmerkmalen}
+
+\begin{frame}{Inverse Capacity mit Zentralit\"atsmerkmalen}
+    \begin{itemize}
+        \item inverseCapacity weights werden mit den Zentralit\"aten der Knoten einer Kante verrechnet
+        \begin{itemize}
+            \item $weight * \frac{CentralityNode_i + CentralityNode_j}{2}$
+        \end{itemize}
+        \item untersuchte Zentralit\"atensmetriken:
+        \begin{itemize}
+            \item Betweenness, Closeness, Eigenvevtor
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Welche Zentralit\"atsmetriken?}
+\begin{columns}
+\begin{column}[t]{0.3\paperwidth}
+\textbf{Closeness} centrality
+    \begin{itemize}
+    \item wie nah ein Knoten zu den anderen ist
+    \item $\mathcal{P}_{i\rightarrow j}$ ist der k\"urzeste Pfad von $i$ nach $j$
+    \item $H(\mathcal{P}_{i\rightarrow j})$ ist der Hop-Count des Pfades
+    \[
+    c_i = \frac{1}{\sum_{j\neq i}H(\mathcal{P}_{i\rightarrow j})}
+    \]
+    \end{itemize}
+\end{column}
+
+\begin{column}[t]{0.3\paperwidth}
+\textbf{Betweenness} centrality
+    \begin{itemize}
+    \item Verh\"altnis aller k\"urzeren Wege zur Anzahl der k\"urzesten Wege die durch den Knoten gehen
+    \[
+    b_i = \sum_{s,t\in\mathcal{N}}\frac{\lvert\mathcal{P}_{i\rightarrow j}(i)\rvert}{\lvert\mathcal{P}_{i\rightarrow j}\rvert} 
+    \]
+    \end{itemize}
+\end{column}
+
+\begin{column}[t]{0.3\paperwidth}
+\textbf{Eigenvector} centrality
+    \begin{itemize}
+    \item entspricht dem $i$-ten Element des Eigenvektors der dem gr\"o\ss ten Eigenwert $\lambda_1$ der Adjazenzmatrix entspricht
+    \end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Ergebnisse}
+\includegraphics[width=.4\textwidth, angle=270]{images/kai_6.png}
+\end{frame}
+\begin{frame}[fragile]{Ergebnisse}
+\includegraphics[width=.4\textwidth, angle=270]{images/kai_7.png}
+\end{frame}
+\begin{frame}[fragile]{Ergebnisse}
+\includegraphics[width=.4\textwidth, angle=270]{images/kai_8.png}
+\end{frame}
+
+\begin{frame}[fragile]{Erkl\"arung}
+\includegraphics[width=.7\textwidth]{images/kai_1.jpg}
+\end{frame}
+\begin{frame}[fragile]{InverseCapacity anwenden}
+\includegraphics[width=.7\textwidth]{images/kai_2.jpg}
+\end{frame}
+\begin{frame}[fragile]{Optimale Pfade}
+\includegraphics[width=.7\textwidth]{images/kai_3.jpg}
+\end{frame}
+\begin{frame}[fragile]{Jetzt mit Zentralit\"aten}
+\includegraphics[width=.7\textwidth]{images/kai_4.jpg}
+\end{frame}
+\begin{frame}[fragile]{Anzahl der Pfade}
+\includegraphics[width=.7\textwidth]{images/kai_5.jpg}
+\end{frame}
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Naveed
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Naveed}
+\begin{frame}[fragile]{Plotergebnisse}
+\begin{itemize}
+    \item \textbf{All-algorithms}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=.6\textwidth]{images/naveed_1.pdf}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Plotergebnisse}
+\begin{itemize}
+    \item \textbf{All-topologies:}\newline $1)$
+\end{itemize}
+\begin{center}
+    \includegraphics[width=.7\textwidth]{images/naveed_3.pdf}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Plotergebnisse}
+\begin{itemize}
+    \item \textbf{All-topologies:}\newline $2)$
+\end{itemize}
+\begin{center}
+    \includegraphics[width=.7\textwidth]{images/naveed_4.pdf}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Plotergebnisse}
+\begin{itemize}
+    \item \textbf{All-topologies:}\newline $3)$
+\end{itemize}
+\begin{center}
+    \includegraphics[width=.5\textwidth]{images/naveed_2.pdf}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Plotergebnisse}
+\begin{itemize}
+    \item \textbf{All-topologies:}\newline $4)$
+\end{itemize}
+\begin{center}
+    \includegraphics[width=.7\textwidth]{images/naveed_5.pdf}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Plotergebnisse}
+\begin{itemize}
+    \item \textbf{Real demands:}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=.6\textwidth]{images/naveed_6.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/naveed_11.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/naveed_12.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/naveed_13.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/naveed_14.pdf}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/naveed_7.jpg}
+\end{center}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pouria
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pouria
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sequential Combination aus InverseCapacity und DemandFirstWaypoints}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% erste Folie
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% zweite Folie
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dritte Folie
+\begin{frame}{Zweiter Schritt: Motivation}
+\Large
+\begin{itemize}
+    \item wenig Rechenzeit f\"ur $inverse\_capacity$ und $demand\_first\_waypoints$
+    \item Kombi aus beidem genauer?
+    \item zus\"atzliche Rechenzeit gerechtfertigt?
+\end{itemize}
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vierte Folie
+\begin{frame}{Zweiter Schritt: Ergebnisse}
+\Large
+Zielmetrik: MLU (minimum link utilization)
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria1.png}
+\end{center}
+\end{frame}
+\begin{frame}{Zweiter Schritt: Ergebnisse}
+\Large
+Zielmetrik: MLU (minimum link utilization) \textcolor{red}{+ Rechenzeit}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria2.png}
+\end{center}
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% neue Folien
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Ergebnisse}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria_all_algorithms_abilene.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria_colored_scatter_plot_results_all_algorithms.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria_real_demands.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria_colored_scatter_plot_results_real_demands.pdf}
+\end{center}
+\end{frame}
+\begin{frame}{Ergebnisse}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/pouria_colored_scatter_plot_results_all_topologies.pdf}
+\end{center}
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% neue Folien
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Zweiter Schritt: Fragen}
+\Large
+\begin{itemize}
+    \item warum ist $SQ_{CW}$ besser als $SQ_{WC}$?
+    \item Rechenaufwand von beiden gleich?
+    \item warum $SQ$ so viel besser als $SQ_{CW}$ oder $SQ_{WC}$?
+\end{itemize}
+N\"achste Schritte:
+\begin{itemize}
+    \item Algos genauer analysieren \textcolor{lightgray}{Schritt 3}
+    \item Experimente reproduzierbar machen \textcolor{lightgray}{Schritt 4}
+\end{itemize}
+\end{frame}
+\begin{frame}[t,standout]
+\Large
+Fragen oder Anmerkungen?
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reproduktion
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ergebnisse Reproduktion von Gruppe 3}
+\begin{frame}{Frame Title}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err1.png}
+\end{center}
+\end{frame}
+\begin{frame}{Frame Title}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err2.png}
+\end{center}
+\end{frame}
+\begin{frame}{Frame Title}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err3.png}
+\end{center}
+\end{frame}
+\begin{frame}{Frame Title}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err4.png}
+\end{center}
+\end{frame}
+\begin{frame}{Frame Title}
+\begin{center}
+    \includegraphics[width=\textwidth]{images/err5.png}
+\end{center}
+\end{frame}
+\end{document}
