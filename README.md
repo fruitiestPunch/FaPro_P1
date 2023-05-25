@@ -24,3 +24,6 @@ python3 main.py
 ```bash
 python3 plot_results.py "../out/"
 ```
+
+# Presentation
+The final presentation is located in the **/latex/** directory und the name **fapro_p1_pres.pdf**.
